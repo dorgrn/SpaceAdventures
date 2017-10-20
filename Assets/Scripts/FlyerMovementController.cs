@@ -30,6 +30,18 @@ namespace VRStandardAssets.Flyer
         private const float k_ExpDampingCoef = -20f;                // The coefficient used to damp the movement of the flyer.
         private const float k_BankingCoef = 3f;                     // How much the ship banks when it moves.
 
+        public float Speed
+        {
+            get
+            {
+                return m_Speed;
+            }
+
+            set
+            {
+                m_Speed = value;
+            }
+        }
 
         private void Start ()
         {
@@ -41,7 +53,6 @@ namespace VRStandardAssets.Flyer
             m_CameraContainerStartPos = m_CameraContainer.position;
             StartGame();
         }
-
 
         public void StartGame ()
         {
@@ -76,7 +87,7 @@ namespace VRStandardAssets.Flyer
                 m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
                 // Move the camera container forward.
-                m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * m_Speed);
+                m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * Speed);
 
                 // Move the flyer towards the target marker.
                 m_Flyer.position = Vector3.Lerp(m_Flyer.position, m_TargetMarker.position,

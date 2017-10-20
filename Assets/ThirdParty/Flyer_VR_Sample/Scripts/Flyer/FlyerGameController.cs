@@ -11,15 +11,13 @@ namespace VRStandardAssets.Flyer
     public class FlyerGameController : MonoBehaviour
     {
         [SerializeField] private int m_GameDuration = 30;                                   // The duration of the game
-        [SerializeField] private float m_IntroOutroFadeDuration = 0.5f;                     // The duration of the fade before and after the intro
-        [SerializeField] private SelectionSlider m_SelectionSlider;                         // The slider needed to start the game.
-        [SerializeField] private Reticle m_Reticle;                                         // The reticle so it can be turned on to aim at the selection slider.
+        //[SerializeField] private Reticle m_Reticle;                                         // The reticle so it can be turned on to aim at the selection slider.
         [SerializeField] private FlyerHealthController m_HealthController;                  // The flyer's health so it can be reset.
         [SerializeField] private FlyerAlignmentChecker m_AlignmentChecker;                  // The script to check ring alignments, it should only be on whilst the game runs.
         [SerializeField] private FlyerMovementController m_FlyerMovementController;         // The script controlling the movement of the flyer.
         [SerializeField] private EnvironmentController m_EnvironmentController;             // This needs to know when to start and stop spawning the environment.
         [SerializeField] private UIController m_UIController;                               // This needs to know when specific pieces of UI should be shown.
-        [SerializeField] private GUIArrows m_GuiArrows;                                     // The GUI Arrows shown at the start.
+        //[SerializeField] private GUIArrows m_GuiArrows;                                     // The GUI Arrows shown at the start.
         [SerializeField] private Image m_TimerBar;                                          // Timer slider to indicate time remaining.                                
         [SerializeField] private SelectionRadial m_SelectionRadial;                         // Used to restart the game.
         
@@ -84,14 +82,11 @@ namespace VRStandardAssets.Flyer
         private IEnumerator EndPhase ()
         { 
             // Show the required UI like the arrows and the radial.
-            m_GuiArrows.Show ();
-            m_SelectionRadial.Show ();
-
-            // Turn off the fog.
-            //RenderSettings.fog = false;
+            //m_GuiArrows.Show ();
+            //m_SelectionRadial.Show ();
 
             // Show the outro UI.
-            StartCoroutine(m_UIController.ShowOutroUI());
+           // StartCoroutine(m_UIController.ShowOutroUI());
 
             // Stop the various controllers.
             m_AlignmentChecker.StopGame();

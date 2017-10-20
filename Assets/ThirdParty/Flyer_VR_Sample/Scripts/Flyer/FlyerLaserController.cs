@@ -7,35 +7,24 @@ namespace VRStandardAssets.Flyer
     // the object pool and firing them.
     public class FlyerLaserController : MonoBehaviour
     {
-        [SerializeField] private VRInput m_VRInput;                     // Reference to the VRInput so when the fire button is pressed it can be handled.
         [SerializeField] private FlyerGameController m_GameController;  // Reference to the game controller so firing can be limited to when the game is running.
         [SerializeField] private ObjectPool m_LaserObjectPool;          // Reference to the object pool the lasers belong to.
         [SerializeField] private Transform m_LaserSpawnPosLeft;         // The positions the lasers should spawn from.
         [SerializeField] private Transform m_LaserSpawnPosRight;
         [SerializeField] private AudioSource m_LaserAudio;              // The audio source that should play firing sounds.
 
-
-        private void OnEnable()
-        {
-            m_VRInput.OnDown += HandleDown;
-        }
-
-
-        private void OnDisable()
-        {
-            m_VRInput.OnDown -= HandleDown;
-        }
-
-
-        private void HandleDown()
+        void Update()
         {
             // If the game isn't running return.
             if (!m_GameController.IsGameRunning)
                 return;
 
-            // Fire laser from each position.
-            SpawnLaser(m_LaserSpawnPosLeft);
-            SpawnLaser(m_LaserSpawnPosRight);
+            if (Input.anyKeyDown)
+            {
+                // Fire laser from each position.
+                SpawnLaser(m_LaserSpawnPosLeft);
+                SpawnLaser(m_LaserSpawnPosRight);
+            }
         }
 
 

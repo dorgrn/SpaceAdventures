@@ -18,6 +18,7 @@ namespace VRStandardAssets.Flyer
         [SerializeField] private Color m_BaseColor = Color.blue;            // The colour the ring is by defalt.
         [SerializeField] private Color m_ShipAlignedColor = Color.yellow;   // The colour the ring is when the ship is aligned with it.
         [SerializeField] private Color m_ActivatedColor = Color.green;      // The colour the ring is when it has been activated.
+        [SerializeField] private FlyerScoreController m_FlyerScoreController;
 
 
         private bool m_HasTriggered;
@@ -63,6 +64,8 @@ namespace VRStandardAssets.Flyer
             // Set references to the camera and flyer.
             m_Cam = Camera.main.transform;
             m_Flyer = GameObject.FindGameObjectWithTag ("Player");
+            m_FlyerScoreController = m_Flyer.GetComponent<FlyerScoreController>();
+
         }
 
 
@@ -89,6 +92,15 @@ namespace VRStandardAssets.Flyer
 
             // Add to the score.
             SessionData.AddScore(m_Score);
+            if (m_FlyerScoreController != null)
+            {
+                m_FlyerScoreController.OnScoreChange(m_Score);
+            }
+            else
+            {
+                Debug.Log("Score not set!");
+            }
+           
 
             // Set the ring's colour.
             SetRingColour (m_ActivatedColor);

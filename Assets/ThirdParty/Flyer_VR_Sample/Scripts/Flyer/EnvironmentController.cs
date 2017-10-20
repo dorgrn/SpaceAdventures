@@ -41,7 +41,7 @@ namespace VRStandardAssets.Flyer
             
             // Restart the score and set the score's type to be FLYER
             SessionData.Restart();
-            SessionData.SetGameType(SessionData.GameType.FLYER);
+            //SessionData.SetGameType(SessionData.GameType.FLYER);
             
             // The environment has started so spawning can start.
             m_Spawning = true;

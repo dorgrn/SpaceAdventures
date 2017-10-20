@@ -7,13 +7,14 @@ namespace VRStandardAssets.Flyer
     // This script controls the behaviour of each laser instance.
     public class FlyerLaser : MonoBehaviour
     {
-        [SerializeField] private float m_Speed = 500f;              // The speed each laser moves forward at.
+        [SerializeField] private float m_Speed = 2500f;              // The speed each laser moves forward at.
         [SerializeField] private float m_LaserLifeDuration = 3f;    // How long the laser lasts before it's returned to it's object pool.
+        [SerializeField] private float SpeedMultiplier = 10f;
 
 
         private Rigidbody m_RigidBody;                              // Reference to the rigidbody of the laser.
         private bool m_Hit;                                         // Whether the laser has hit something.
-
+        [SerializeField] private FlyerMovementController m_FlyerMovementController;
 
         public ObjectPool ObjectPool { private get; set; }          // The object pool the laser belongs to.
 
@@ -21,12 +22,17 @@ namespace VRStandardAssets.Flyer
         private void Awake()
         {
             m_RigidBody = GetComponent<Rigidbody>();
+            //m_FlyerMovementController = GetComponentInParent<FlyerMovementController>();
+            m_FlyerMovementController = FindObjectOfType<FlyerMovementController>();
+
+            m_Speed = m_FlyerMovementController.Speed * SpeedMultiplier; 
+             
         }
 
 
         private void Update()
         {
-            m_RigidBody.MovePosition(m_RigidBody.position + transform.forward * m_Speed * Time.deltaTime);
+            m_RigidBody.MovePosition(m_RigidBody.position +  transform.forward * m_Speed * Time.deltaTime);
         }
 
 

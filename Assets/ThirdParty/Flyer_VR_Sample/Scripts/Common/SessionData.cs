@@ -6,6 +6,7 @@ namespace VRStandardAssets.Common
     // the highscores to PlayerPrefs.
     public static class SessionData
     {
+        /*
         // This enum shows all the types of games that use scores.
         public enum GameType
         {
@@ -18,7 +19,7 @@ namespace VRStandardAssets.Common
         private const string k_FlyerData = "flyerData";             // These are the names given to PlayerPrefs based on game type.
         private const string k_Shooter180 = "shooter180Data";
         private const string k_Shooter360 = "shooter360Data";
-
+*/
 
         private static int s_HighScore;                             // Used to store the highscore for the current game type.
         private static int s_Score;                                 // Used to store the current game's score.
@@ -29,6 +30,7 @@ namespace VRStandardAssets.Common
         public static int Score { get { return s_Score; } }
 
 
+        /*
         public static void SetGameType(GameType gameType)
         {
             // Set the name of the current game based on the game type.
@@ -52,7 +54,7 @@ namespace VRStandardAssets.Common
             }
 
             Restart();
-        }
+        }*/
 
 
         public static void Restart()
@@ -88,10 +90,11 @@ namespace VRStandardAssets.Common
 
         private static void SetHighScore()
         {
+            /*
             // Make sure the name of the current game has been set.
             if (string.IsNullOrEmpty(s_CurrentGame))
                 Debug.LogError("m_CurrentGame not set");
-
+                */
             // The high score is now equal to the current score.
             s_HighScore = s_Score;
 
