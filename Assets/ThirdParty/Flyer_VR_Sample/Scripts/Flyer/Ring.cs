@@ -14,7 +14,7 @@ namespace VRStandardAssets.Flyer
         
 
         [SerializeField] private int m_Score = 100;                         // The amount added to the player's score when the ring is activated.
-        [SerializeField] private AudioSource m_AudioSource;                 // Reference to the audio source that plays a clip when the player activates the ring.
+        [SerializeField] private GvrAudioSource m_AudioSource;                 // Reference to the audio source that plays a clip when the player activates the ring.
         [SerializeField] private Color m_BaseColor = Color.blue;            // The colour the ring is by defalt.
         [SerializeField] private Color m_ShipAlignedColor = Color.yellow;   // The colour the ring is when the ship is aligned with it.
         [SerializeField] private Color m_ActivatedColor = Color.green;      // The colour the ring is when it has been activated.
@@ -64,6 +64,7 @@ namespace VRStandardAssets.Flyer
             // Set references to the camera and flyer.
             m_Cam = Camera.main.transform;
             m_Flyer = GameObject.FindGameObjectWithTag ("Player");
+            m_AudioSource = GetComponent<GvrAudioSource>();
             m_FlyerScoreController = m_Flyer.GetComponent<FlyerScoreController>();
 
         }

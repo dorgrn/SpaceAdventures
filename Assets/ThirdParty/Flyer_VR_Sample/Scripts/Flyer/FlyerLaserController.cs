@@ -11,7 +11,7 @@ namespace VRStandardAssets.Flyer
         [SerializeField] private ObjectPool m_LaserObjectPool;          // Reference to the object pool the lasers belong to.
         [SerializeField] private Transform m_LaserSpawnPosLeft;         // The positions the lasers should spawn from.
         [SerializeField] private Transform m_LaserSpawnPosRight;
-        [SerializeField] private AudioSource m_LaserAudio;              // The audio source that should play firing sounds.
+        [SerializeField] private GvrAudioSource m_LaserAudio;              // The audio source that should play firing sounds.
 
         void Update()
         {

@@ -145,7 +145,12 @@ public static class GvrAudio {
 
   /// Creates a new audio source with a unique id.
   /// @note This should only be called from the main Unity thread.
-  public static int CreateAudioSource (bool hrtfEnabled) {
+  public static int Create
+        
+        
+        
+        
+        (bool hrtfEnabled) {
     int sourceId = -1;
     if (initialized) {
       sourceId = CreateSource(hrtfEnabled);

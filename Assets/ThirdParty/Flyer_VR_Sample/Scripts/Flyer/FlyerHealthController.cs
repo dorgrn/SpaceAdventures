@@ -10,7 +10,7 @@ namespace VRStandardAssets.Flyer
         [SerializeField] private GameObject m_FlyerExplosionPrefab;     // A prefab of the flyer exploded into parts.
         [SerializeField] private Image m_HealthBar;                     // Reference to the image used as a health bar.
         [SerializeField] private AudioSource m_ExplosionAudio;          // Reference to the audio source used to play the explosion sound.
-        [SerializeField] private AudioSource m_ThrusterAudio;           // Reference to the audio source used to play the sound of the flyer engines.
+        [SerializeField] private GvrAudioSource m_ThrusterAudio;           // Reference to the audio source used to play the sound of the flyer engines.
         [SerializeField] private GameObject[] m_FlyerUIGameObjects;     // All the gameobjects containing UI for the flyer (to be turned off on death).
         [SerializeField] private Renderer[] m_FlyerRenderers;           // All the renderers for the flyer (to be turned off on death).
         [SerializeField] private Collider[] m_FlyerColliders;           // All the colliders for the flyer (to be turned off on death).

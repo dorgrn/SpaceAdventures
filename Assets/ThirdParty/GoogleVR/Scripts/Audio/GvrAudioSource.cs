@@ -16,7 +16,11 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections;
 
-/// GVR audio source component that enhances AudioSource to provide advanced spatial audio features.
+/// GVR audio source component that enhances 
+/// 
+/// 
+/// 
+/// to provide advanced spatial audio features.
 [AddComponentMenu("GoogleVR/Audio/GvrAudioSource")]
 public class GvrAudioSource : MonoBehaviour {
   /// Denotes whether the room effects should be bypassed.
@@ -353,8 +357,9 @@ public class GvrAudioSource : MonoBehaviour {
 
   // Initializes the source.
   private bool InitializeSource () {
-    if (id < 0) {
-      id = GvrAudio.CreateAudioSource(hrtfEnabled);
+        
+        if (id < 0) {
+      id = GvrAudio.Create(hrtfEnabled);
       if (id >= 0) {
         GvrAudio.UpdateAudioSource(id, transform, bypassRoomEffects, gainDb, spread, rolloffMode,
                                    sourceMinDistance, sourceMaxDistance, directivityAlpha,
